@@ -155,8 +155,8 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error',{err});
 })
 
-app.listen(6969, () => {
-    console.log('Listening the port 6969 from Tranquil...');
+app.listen(5000, () => {
+    console.log('Listening the port 5000 from Tranquil...');
 });
 
 

@@ -23,13 +23,15 @@ router.get('/', catchAsync(async (req, res, next) => {
     //yahan pe dbms se aa rha feed
      //const feeds = await feed.find({});
      //console.log(feeds);
-     isloggedin=0;
+    //  isloggedin=0;
     //console.log(isloggedin)
-    if(req.session.loginno){
-        isloggedin=req.session.loginno;
+    // if(req.session.loginno){
+    //     isloggedin=req.session.loginno;
         
-    }
-     res.render('products/products',{navactive,navactive:navactive,isloggedin:isloggedin});
+    // }
+
+    isloggedin=1;
+    res.render('products/products',{navactive,navactive:navactive,isloggedin:isloggedin});
 
 }))
 

@@ -4,19 +4,14 @@
   "description": "",
   "main": "JoiSchema.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AnmolkPandey06/Tranquil.git"
-  },
+ 
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AnmolkPandey06/Tranquil/issues"
-  },
-  "homepage": "https://github.com/AnmolkPandey06/Tranquil#readme",
+
   "dependencies": {
     "body-parser": "^1.20.2",
     "connect-flash": "^0.1.1",

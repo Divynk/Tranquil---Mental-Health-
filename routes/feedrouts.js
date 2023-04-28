@@ -46,14 +46,14 @@ router.get('/', catchAsync(async (req, res, next) => {
 
 }))
 
-router.get('/newfeed',isLoggedIn,(req, res, next) => {
+router.get('/newfeed',(req, res, next) => {
     navactive=[0,1,0,0,0,0]
     
     //res.send("Hello from Yelpcamp");
     res.render('feed/newblog',{navactive:navactive});
 })
 
-router.post('/newfeed',isLoggedIn,uploads.single('image'),catchAsync(async(req,res)=>{
+router.post('/newfeed',uploads.single('image'),catchAsync(async(req,res)=>{
     console.log(req.file);
     if(!req.file){
         req.flash('error','Upload Image Again');
@@ -97,7 +97,7 @@ router.post('/newfeed',isLoggedIn,uploads.single('image'),catchAsync(async(req,r
 
 
 
-router.get('/:id',isLoggedIn,catchAsync(async (req, res, next) => {
+router.get('/:id',catchAsync(async (req, res, next) => {
 //res.send("Hello from Yelpcamp");
 isloggedin=req.session.loginno;
 const id = req.params.id
@@ -126,7 +126,7 @@ res.render('feed/show',{post,navactive:navactive});
 //
  
 
-router.post('/comment/:id',isLoggedIn,catchAsync(async(req,res)=>{
+router.post('/comment/:id',catchAsync(async(req,res)=>{
     const post =await feed.findById(req.params.id);
     console.log(req.body.comment.body);
     const comment=new Comment(req.body.comment);
@@ -146,7 +146,7 @@ router.post('/comment/:id',isLoggedIn,catchAsync(async(req,res)=>{
 ))
 
 
-router.get('/like/:id',isLoggedIn,catchAsync(async(req,res)=>{
+router.get('/like/:id',catchAsync(async(req,res)=>{
     const post =await feed.findById(req.params.id);
     id=req.user._id; 
     post.reallikes.push(id);
@@ -158,7 +158,7 @@ router.get('/like/:id',isLoggedIn,catchAsync(async(req,res)=>{
 }))
 
 
-router.get('/unlike/:id',isLoggedIn,catchAsync(async(req,res)=>{
+router.get('/unlike/:id',catchAsync(async(req,res)=>{
     const post =await feed.findById(req.params.id);
     id=req.user._id; 
     post.reallikes.pop(id);
